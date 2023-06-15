@@ -52,13 +52,13 @@ endmodule
 ```
 # Full Subtractor
 ```
-module HalfSubtractor(A,B,Diff,Borrow);
-input A,B;
+module fullsubtractor(A,B,C,Diff,Borrow);
+input A,B,C;
 output Diff,Borrow;
-wire x;
-xor (Diff, A,B);
-not(x,A);
-and(Borrow,x,B);
+wire p;
+assign Diff=((A^B)^C);
+not(p,A);
+assign Borrow=((p&B)|(p&C)|(p&C));
 endmodule
 ```
 # Output:
@@ -80,7 +80,7 @@ endmodule
 ### Truth Table:
 ![image](https://user-images.githubusercontent.com/113497571/229541888-2b64d526-b817-4a9e-a785-714b9a50dcdf.png)
 ### RTL realization:
-![image](https://user-images.githubusercontent.com/113497571/229542047-bdb78e5f-0e95-4030-a753-e31f7cfedd7a.png)
+![image](https://github.com/SandhiyaR1/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/113497571/e0984cc2-4d4c-4fc4-bf4a-667326593e36)
 ### Timming Diagram:
 ![image](https://user-images.githubusercontent.com/113497571/229542160-585f3196-a445-463d-b10d-0bde4381bb69.png)
 ## Result:
